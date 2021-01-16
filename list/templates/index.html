@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="card p-3" style="max-width: 37rem;">
+  <h4><strong>Home</strong></h4>
+  <p>This is a website meant for sharing memes related to logical fallacies, as a final project for subject Logic. Your meme will be shared anonymously. In
+    the reference field, you
+    can write your name if you like but always write or paste the image sources.
+  </p>
+  <button class="btn btn-dark raise" type="button" data-toggle="modal" data-target="#exampleModalCenter">Share your
+    Logical meme now!</button>
+</div>
+<br>
+
+<div class="card-colummn mx-auto">
+  <div class="card mb-4 mr-md-auto ml-md-0 ml-auto mr-auto b1" style="max-width: 37rem;">
+    <div class="card-body">
+      <div class="pb-2 form-inline">
+        <strong>
+          <div class="text-muted mr-1">anonymous</div>
+        </strong>
+        <div class="badge badge-pill badge-dark pt-1 mb-1 mr-1">About</div>
+      </div>
+      <h5 class="card-title"><strong>where does the name LoMemes comes from?</strong></h5>
+      <div class="text-center">
+        <img src="https://i.imgflip.com/4tkax5.jpg" alt="connect" class="img-fluid rounded">
+      </div>
+      <p class="card-text"><small><strong>References: </strong>https://imgflip.com/i/4tkax5</small></p>
+    </div>
+  </div>
+  {% for item in items%}
+  <div class="card mb-4 mr-md-auto ml-md-0 ml-auto mr-auto b1" style="max-width: 37rem;">
+    <div class="card-body">
+      <div class="pb-2 form-inline">
+        <strong>
+          <div class="text-muted mr-1">anonymous</div>
+        </strong>
+        <div class="badge badge-pill badge-dark pt-1 mb-1 mr-1">{{item.type}}</div>
+        <div class="text-muted">{{item.created}}</div>
+      </div>
+      <h5 class="card-title"><strong>{{item.item | linebreaksbr}}</strong></h5>
+      <div class="text-center">
+        <img src="{{ item.image.url}}" alt="connect" class="img-fluid rounded">
+      </div>
+      <p class="card-text"><small><strong>References: </strong>{{item.description}}</small></p>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+
+
+
+
+
+
+{% endblock %}

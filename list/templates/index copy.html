@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- <div class="card" style="max-width: 35rem;">
+    <div class="card-body">
+      <form action='/' method='POST' enctype="multipart/form-data">
+        {%csrf_token%}
+        <label>Description</label>
+        <textarea rows="4" class="form-control" name="item"></textarea>
+        <br>
+        <label for="type">Fallacy</label>
+        <select class="form-control" id="type" name="type">
+          <option disabled selected value> -- select an option -- </option>
+          <option value="Argumentum ad hominem">Argumentum Ad Hominem</option>
+          <option value="Argumentum ad baculum">Ad Hominem</option>
+          <option value="Argumentum ad misericordiam">Ad Hominem</option>
+          <option value="Argumentum ad populum">Ad Hominem</option>
+          <option value="Red herring">Red herring</option>
+          <option value="False cause">False cause</option>
+          <option value="Equivocation">Equivocation</option>
+          <option value="Slippery slope">Slippery Slope</option>
+          <option value="False analogy">False analogy</option>
+          <option value="Hasty generalization">Hasty generalization</option>
+          <option value="False dichotomy">False dichotomy</option>
+        </select>
+        <br>
+        <label>Upload image</label>
+        <input type="file" name="image" id="image">
+        <br>
+        <br>
+        <label>References</label>
+        <textarea class="form-control" rows="3" name="description"></textarea>
+        <br>
+        <button type="submit" class="btn btn-secondary">Post your meme</button>
+      </form>
+    </div>
+  </div> -->
+
+<div class="text-start">
+  <h5>Home</h5>
+</div>
+<div class="card-colummn mx-auto">
+  {% for item in items%}
+  <div class="card mb-4 box-shadow b1 mr-md-auto ml-md-0 ml-auto mr-auto" style="max-width: 35rem;">
+    <div class="card-body">
+      <div class="pb-2 d-flex justify-content-start">
+        <strong><span class="text-muted">anonymous</span></strong>
+        <span class="text-muted ml-2">{{item.created}}</span>
+        <span class="badge badge-pill badge-success pt-1 ml-2 mb-1">{{item.type}}</span>
+      </div>
+      <h4 class="card-title"><strong>{{item.item}}</strong></h4>
+      <p class="card-text">{{item.description}}</p>
+      <div class="text-center">
+        <img src="{{ item.image.url}}" alt="connect" class="img-fluid rounded">
+      </div>
+      <div class="d-flex justify-content-end">
+        <a data-toggle="modal" data-target="#{%url 'edit' item.id%}">
+          <button type="button" class="btn btn-outline-primary btn-sm mr-2 raise">
+            <i class="fa fa-pencil mr-1"></i>Edit
+          </button>
+        </a>
+        <a>
+          <button type="button" class="btn btn-outline-danger btn-sm raise" data-toggle="modal"
+            data-target="#{%url 'delete' item.id%}">
+            <i class="fa fa-trash"></i> Delete
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal edit -->
+  <div class="modal fade" id="{%url 'edit' item.id%}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{%url 'edit' item.id%}" method='POST'>
+          {%csrf_token%}
+          <div class="modal-body">
+            <label>Task Title</label>
+            <input type="text" class="form-control" name="item" value={{item.item}}>
+            <br>
+            <label>Description</label>
+            <textarea class="form-control" rows="3" name="description">{{item.description}}</textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <input type="submit" class="btn btn-primary" name="edit" value="Update">
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <!-- Modal Delete -->
+  <div class="modal fade" id="{%url 'delete' item.id%}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Note</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete <strong>{{item.item}}</strong>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'delete' item.id%}"><button type="button" class="btn btn-outline-danger">Delete</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- <div class="card" style="max-width: 35rem;">
+    <div class="card-body">
+      <form action='/' method='POST' enctype="multipart/form-data">
+        {%csrf_token%}
+        <label>Description</label>
+        <textarea rows="4" class="form-control" name="item"></textarea>
+        <br>
+        <label for="type">Fallacy</label>
+        <select class="form-control" id="type" name="type">
+          <option disabled selected value> -- select an option -- </option>
+          <option value="Argumentum ad hominem">Argumentum Ad Hominem</option>
+          <option value="Argumentum ad baculum">Ad Hominem</option>
+          <option value="Argumentum ad misericordiam">Ad Hominem</option>
+          <option value="Argumentum ad populum">Ad Hominem</option>
+          <option value="Red herring">Red herring</option>
+          <option value="False cause">False cause</option>
+          <option value="Equivocation">Equivocation</option>
+          <option value="Slippery slope">Slippery Slope</option>
+          <option value="False analogy">False analogy</option>
+          <option value="Hasty generalization">Hasty generalization</option>
+          <option value="False dichotomy">False dichotomy</option>
+        </select>
+        <br>
+        <label>Upload image</label>
+        <input type="file" name="image" id="image">
+        <br>
+        <br>
+        <label>References</label>
+        <textarea class="form-control" rows="3" name="description"></textarea>
+        <br>
+        <button type="submit" class="btn btn-secondary">Post your meme</button>
+      </form>
+    </div>
+  </div> -->
+
+<div class="card p-3" style="max-width: 37rem;">
+  <h4><strong>Slippery Slope</strong></h4>
+<p> Taking minor event and turns it into major catastrophe. When event A happened, then it will lead to event B, event C, up to event Z, therefore event A should not happen.
+  </p>
+</div>
+<br>
+
+<div class="card-colummn mx-auto">
+  {% for item in items%}
+  <div class="card mb-4 mr-md-auto ml-md-0 ml-auto mr-auto b1" style="max-width: 37rem;">
+    <div class="card-body">
+      <div class="pb-2 form-inline">
+        <strong>
+          <div class="text-muted mr-1">anonymous</div>
+        </strong>
+        <div class="badge badge-pill badge-dark pt-1 mb-1 mr-1">{{item.type}}</div>
+        <div class="text-muted">{{item.created}}</div>
+      </div>
+      <h5 class="card-title"><strong>{{item.item | linebreaksbr}}</strong></h5>
+      <div class="text-center">
+        <img src="{{ item.image.url}}" alt="connect" class="img-fluid rounded">
+      </div>
+      <p class="card-text"><small><strong>References: </strong>{{item.description}}</small></p>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LoMemes</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="data:image/jpeg;base64,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">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* @media (max-width: 750px) {  
+  .card-columns {column-count: 1;}
+} */
+
+    /* @media (min-width: 750px) {  
+  .card-columns {column-count: 2;}
+} */
+
+    /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+    /* @media (min-width: 768px) {  
+  .card-columns {column-count: 2;}
+} */
+
+    /* Large devices (desktops, 992px and up) */
+    /* @media (min-width: 992px) { 
+ .card-columns {column-count: 3;}
+} */
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    /* @media (min-width: 1200px) {  
+   .card-columns {column-count: 3;} 
+} */
+
+    .card-columns {
+      column-count: 1;
+    }
+
+    .badge-outline-primary {
+      color: #405189;
+      border: 1px solid #405189
+    }
+
+    .badge.badge-pill {
+      border-radius: 10rem
+    }
+
+
+    .badge-outline-secondary {
+      color: #808080;
+      border: 1px solid #808080;
+
+    }
+
+    .badge-outline-secondary:hover {
+      color: white;
+      background-color: #808080;
+    }
+
+    .badge-outline-success {
+      color: #5cb85c;
+      border: 1px solid #5cb85c;
+
+    }
+
+    .badge-outline-success:hover {
+      color: white;
+      background-color: #5cb85c;
+    }
+
+    .b1:hover {
+      border-top: 4px solid #757575;
+    }
+
+    /* .b2 {
+      border-top: 4px solid #808080;
+    } */
+
+    /* div.card {
+      transition: all 1s ease 0s;
+    }
+
+    div.card:hover {
+      box-shadow: 5px 8px #888888;
+    } */
+
+    .raise:hover {
+      box-shadow: 0 1em 1em -0.4em gray;
+      transform: translateY(-0.25em);
+    }
+
+    .display {
+      display: none;
+    }
+
+
+    /* The side navigation menu */
+    .sidenav {
+      height: 100%;
+      /* 100% Full-height */
+      width: 0;
+      /* 0 width - change this with JavaScript */
+      position: fixed;
+      /* Stay in place */
+      z-index: 99;
+      /* Stay on top */
+      top: 0;
+      /* Stay at the top */
+      left: 0;
+      background-color: #111;
+      /* Black*/
+      overflow-x: hidden;
+      /* Disable horizontal scroll */
+      padding-top: 60px;
+      /* Place content 60px from the top */
+      transition: 0.5s;
+      /* 0.5 second transition effect to slide in the sidenav */
+      -webkit-box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+      -moz-box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+      box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+    }
+
+
+    /* The navigation menu links */
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #08ccc2;
+      display: block;
+      transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    #main {
+      margin-left: 500px;
+      /* Same as the width of the sidebar */
+      overflow-x: hidden;
+      padding-top: 2.3rem;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .sidenav {
+        padding-top: 10px;
+      }
+
+      .sidenav1 {
+        display: none
+      }
+
+      .sidenav a {
+        font-size: 20px;
+      }
+
+      .main {
+        margin-right: auto;
+        margin-left: auto;
+        transition: margin-left .5s;
+        padding: 20px;
+      }
+
+      #main {
+        margin-right: 0;
+        margin-left: 0;
+        transition: margin-left .5s;
+        padding: 20px;
+        overflow-x: hidden;
+        padding-top: 1rem;
+      }
+
+      .display {
+        display: inline;
+      }
+    }
+
+
+    .sidenav1 {
+      height: 100%;
+      /* Full-height: remove this if you want "auto" height */
+      width: 450px;
+      /* Set the width of the sidebar */
+      position: fixed;
+      /* Fixed Sidebar (stay in place on scroll) */
+      z-index: 1;
+      /* Stay on top */
+      top: 0;
+      /* Stay at the top */
+      left: 0;
+      background-color: #111;
+      /* Black */
+      overflow-x: hidden;
+      /* Disable horizontal scroll */
+      padding-top: 20px;
+      transition: 0.5s;
+      padding-right: 45px;
+      /* 0.5 second transition effect to slide in the sidenav */
+      -webkit-box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+      -moz-box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+      box-shadow: 3px 0px 4px 0px rgba(13, 13, 13, 0.62);
+    }
+
+    /* The navigation menu links */
+    .sidenav1 a {
+      padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+      text-align: right;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav1 a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Style page content */
+    .main {
+      margin-left: 160px;
+      /* Same as the width of the sidebar */
+      padding: 0px 10px;
+    }
+
+    .black {
+      background: black;
+      color: white;
+      border: 0px solid;
+    }
+  </style>
+</head>
+
+<body style="background: #d8d8d8">
+
+
+  <div class="modal fade" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="card">
+          <div class="card-body">
+            <form action='/' method='POST' enctype="multipart/form-data">
+              {%csrf_token%}
+              <label>Description</label>
+              <textarea rows="4" class="form-control" name="item"></textarea>
+              <br>
+              <label for="type">Fallacy</label>
+              <select class="form-control" id="type" name="type">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Argumentum ad hominem">Argumentum ad hominem</option>
+                <option value="Argumentum ad baculum">Argumentum ad baculum</option>
+                <option value="Argumentum ad misericordiam">Argumentum ad misericordiam</option>
+                <option value="Argumentum ad populum">Argumentum ad populum</option>
+                <option value="False cause">False cause</option>
+                <option value="Equivocation">Equivocation</option>
+                <option value="Slippery slope">Slippery Slope</option>
+                <option value="False analogy">False analogy</option>
+                <option value="Hasty generalization">Hasty generalization</option>
+                <option value="False dichotomy">False dichotomy</option>
+              </select>
+              <br>
+              <label>Upload image</label>
+              <input type="file" name="image" id="image">
+              <br>
+              <br>
+              <label>References</label>
+              <textarea class="form-control" rows="3" name="description"></textarea>
+              <br>
+              <button type="submit" class="btn btn-secondary">Post your meme</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/hominem">Ad hominem</a>
+    <a href="/baculum">Ad baculum</a>
+    <a href="/misericordiam">Ad misericordiam</a>
+    <a href="/populum">Ad populum</a>
+    <a href="/false_cause">False cause</a>
+    <a href="/equivocation">Equivocation</a>
+    <a href="/slippery_slope">Slippery Slope</a>
+    <a href="/false_analogy">False analogy</a>
+    <a href="/generalization">Hasty generalization</a>
+    <a href="/false_dichotomy">False dichotomy</a>
+  </div>
+
+
+
+
+  <!-- Use any element to open the sidenav -->
+
+
+  <div class="sidenav1">
+    <a style="color:white" href="/">Lo<strong>Memes</strong></a>
+    <a> <button class="btn btn-light raise" data-toggle="modal" data-target="#exampleModalCenter"> Create</button> </a>
+    <a href="/">Home</a>
+    <a href="/hominem">Ad hominem</a>
+    <a href="/baculum">Ad baculum</a>
+    <a href="/misericordiam">Ad misericordiam</a>
+    <a href="/populum">Ad populum</a>
+    <a href="/false_cause">False cause</a>
+    <a href="/equivocation">Equivocation</a>
+    <a href="/slippery_slope">Slippery Slope</a>
+    <a href="/false_analogy">False analogy</a>
+    <a href="/generalization">Hasty generalization</a>
+    <a href="/false_dichotomy">False dichotomy</a>
+
+  </div>
+
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+  <div id="main" class="main">
+    <nav class="d-lg-none form-inline navbar navbar-dark bg-light">
+      <h3 onclick="openNav()" class="mt-2 display">&#9776;</h3>
+      <h3 class="mt-2 ml-2 display">Lo<strong>Memes</strong></h3>
+      <button class="btn btn-dark ml-auto raise" data-toggle="modal" data-target="#exampleModalCenter">Create</button>
+    </nav>
+    <div class="mt-3">
+      {%if messages%}
+      {%for message in messages%}
+    </div>
+    <div class="row">
+      <div class="col-md-5 col-11 alert alert-warning alert-dismissible fade show black fixed-bottom mx-auto"
+        id="successMessage" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+    <div class="mt-2 mt-md-0">
+      {% block content %}
+      <!---this is the part of the content-->
+      {% endblock %}
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Menu Toggle Script -->
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+  <script type="text/javascript">
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 5000).slideUp(300);
+  </script>
+
+
+</body>
+
+</html>
